@@ -16,3 +16,15 @@ This starts an HTTP server on `:8080` with the following endpoints:
 - `GET  /todos` – list all todos
 
 
+
+## Development Helpers
+
+The repository includes a `Makefile` and a `docker-compose.yaml` file to set up a local MongoDB instance with some seed data.
+
+```bash
+# Build and run MongoDB with sample data
+make init-db
+```
+
+This uses the official MongoDB Docker image through Docker Compose and executes `scripts/init-db.js` on startup. The `install-mongo` target demonstrates how MongoDB can be installed on Debian/Ubuntu based systems.
+
