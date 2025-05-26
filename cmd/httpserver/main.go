@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/example/todos/internal/adapters/mongo"
+	adapter_mdb "github.com/example/todos/internal/adapters/mongo"
 	httpHandler "github.com/example/todos/internal/handlers/http"
 	"github.com/example/todos/internal/services"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -23,7 +23,7 @@ func main() {
 	}
 	db := client.Database("todos")
 
-	repo := mongo.NewTodoRepository(db)
+	repo := adapter_mdb.NewTodoRepository(db)
 	service := services.NewTodoService(repo)
 	handler := httpHandler.NewHandler(service)
 
